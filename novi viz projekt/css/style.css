@@ -1,0 +1,22 @@
+#chart { border: 1px solid green;}
+svg { background: #AABBFF; border: 2px solid #8899EE;}
+
+#ispis_zupanije{
+			display: none;
+			position: absolute;			
+			text-align: center;			
+			width: 200px;					
+			height: 40px;					
+			padding: 2px;				
+			font: 15px sans-serif;	
+			font-weight: normal; 	
+			border: 3px;		
+			border-radius: 20px;
+            border-color: #f00;
+            background: gray;
+            pointer-events: none;
+		}
+
+#slider{
+    width: 500px;
+}
