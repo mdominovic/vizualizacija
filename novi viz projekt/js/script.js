@@ -29,7 +29,7 @@ var color = d3.scale.linear()
             .range(['#aaeeff', '#000033']);
  
 d3.select("body").append("div").attr("id", "ispis_zupanije");
-
+ 
 d3.select("body").append("div")
 .attr("id", "line_chart");
  
@@ -50,7 +50,7 @@ d3.json("cro_regv3.json", function (error, cro) {
                     .append("path")
                     .attr("class", "county")
                     .attr("id", function(d) { return d.id; })
-                    .attr("d", path) 
+                    .attr("d", path)
                     .style("fill", function(d) {
                         switch(year) {
                             case 2007:
@@ -152,7 +152,7 @@ d3.json("cro_regv3.json", function (error, cro) {
                     .on('click', function(d){
                         d3.select("#line_chart svg").remove();
                         console.log(d.properties.name);
-    	                var naslov_zupanije = d.properties.name;
+                        var naslov_zupanije = d.properties.name;
                         line_data[0] = d.properties.nezap_p_2007;
                         line_data[1] = d.properties.nezap_p_2008;
                         line_data[2] = d.properties.nezap_p_2009;
@@ -167,24 +167,24 @@ d3.json("cro_regv3.json", function (error, cro) {
                     });
    
    
-
-    
-    
-    
-    
+ 
+   
+   
+   
+   
     function drawChart(naslov){
-	var lg_margin = {top: 20, right: 30, bottom: 20, left: 30},
+    var lg_margin = {top: 20, right: 30, bottom: 20, left: 30},
     lg_width = 300 - lg_margin.left - lg_margin.right,
     lg_height = 200 - lg_margin.top - lg_margin.bottom;
    
     var xScale = d3.scale.linear()
     .domain(d3.range(line_data.length))
     .range([0, lg_width]);
-
+ 
     var yScale = d3.scale.linear()
         .domain([0, 100])
         .range([lg_height, 0]);
-
+ 
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
@@ -192,7 +192,7 @@ d3.json("cro_regv3.json", function (error, cro) {
         //.outerTickSize(0)
         //.tickPadding(10)
         .tickFormat(function(d, i) { return godine[i] });
-
+ 
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
@@ -200,20 +200,20 @@ d3.json("cro_regv3.json", function (error, cro) {
         //.outerTickSize(0)
         //.tickPadding(10)
         .ticks(10);
-
+ 
     var svg = d3.select("#line_chart").append("svg")
         .attr("width", lg_width + lg_margin.left + lg_margin.right)
         .attr("height", lg_height + lg_margin.top + lg_margin.bottom)
         .append("g")
         .attr("transform", "translate(" + lg_margin.left + "," + lg_margin.top + ")");
-
+ 
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + lg_height + ")")
         .call(xAxis)
         .selectAll("text")
         .style("text-anchor", "middle");
-    
+   
     svg.append("g")
        .attr("class", "y axis")
        .call(yAxis);
@@ -225,42 +225,42 @@ d3.json("cro_regv3.json", function (error, cro) {
         .attr("transform", "translate(0," + lg_height + ")")
         .style("text-anchor", "end")
         .text("Vrijednost u postotcima");*/
-    
-
+   
+ 
     /*svg.append("path")
        .data(line_data)
        .attr("class", "line")
        .attr("d", line);*/
-    
+   
     svg.append("text")
-    .attr("x", (width2 / 2))             
+    .attr("x", (width2 / 2))            
     .attr("y", 0 - (margin.top / 2))
     .attr("text-anchor", "middle")  
     .attr("dy", "0.8em")
-    .style("font-size", "23px") 
+    .style("font-size", "23px")
     .style("font-weight", "bold")  
     .text(naslov);
-    
+   
     var valueline = d3.svg.line()
                         .x(function(d, i) { return linedata[i]; })
                         .y(function(d) { return godine[d]; });
-
-    
+ 
+   
     var linechart = svg.append("path")
                         .attr("class", "line")
                         .attr("d", valueline(line_data))
                         .style("stroke", "blue");
-
+ 
                
 }
-    
-    
-    
-    
-    
-    
-    
-    
+   
+   
+   
+   
+   
+   
+   
+   
  
 }
 );
@@ -283,5 +283,3 @@ var slider = d3.slider()
  
 // Render the slider in the div
 d3.select('#slider').call(slider);
- 
- 
