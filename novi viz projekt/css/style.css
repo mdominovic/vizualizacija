@@ -1,5 +1,7 @@
 #chart { border: 1px solid green;}
-svg { background: #AABBFF; border: 2px solid #8899EE;}
+svg { background: #AABBFF; border: 2px solid #8899EE; display: inline-block;}
+
+
 
 #ispis_zupanije{
 			display: none;
@@ -19,4 +21,19 @@ svg { background: #AABBFF; border: 2px solid #8899EE;}
 
 #slider{
     width: 500px;
+}
+
+#line_chart{
+    display: inline;
+    float:left;
+}
+
+.axis path {
+    fill: none;
+    stroke: #777;
+    shape-rendering: crispEdges;
+}
+.axis text {
+    font-family: sans-serif;
+    font-size: 13px;
 }
