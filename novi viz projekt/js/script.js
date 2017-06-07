@@ -32,6 +32,7 @@ d3.select("body").append("div").attr("id", "ispis_zupanije");
  
 d3.select("body").append("div")
 .attr("id", "line_chart");
+
  
 d3.select("#chart").append("div").attr("id", "zupanija");
  
@@ -40,7 +41,6 @@ function drawMap(year) {
    
 d3.json("cro_regv3.json", function (error, cro) {
     var data = topojson.feature (cro, cro.objects.layer1);
-    var line_data = [0];
     var data1;
     var godine = ["2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016"];
     d3.select("#map svg").remove();
@@ -154,17 +154,6 @@ d3.json("cro_regv3.json", function (error, cro) {
                         d3.select("#line_chart svg").remove();
                         console.log(d.properties.name);
                         var naslov_zupanije = d.properties.name;
-                 /*       line_data[0] = d.properties.nezap_p_2007;
-                        line_data[1] = d.properties.nezap_p_2008;
-                        line_data[2] = d.properties.nezap_p_2009;
-                        line_data[3] = d.properties.nezap_p_2010;
-                        line_data[4] = d.properties.nezap_p_2011;
-                        line_data[5] = d.properties.nezap_p_2012;
-                        line_data[6] = d.properties.nezap_p_2013;
-                        line_data[7] = d.properties.nezap_p_2014;
-                        line_data[8] = d.properties.nezap_p_2015;
-                        line_data[9] = d.properties.nezap_p_2016;
-                        */
                         
                         data1 = [{
                             "line_data": d.properties.nezap_p_2007,
@@ -206,7 +195,10 @@ d3.json("cro_regv3.json", function (error, cro) {
    
  
    
-   
+   function lines(){
+       
+       
+   }
    
    
     function drawChart(naslov){
@@ -225,7 +217,7 @@ d3.json("cro_regv3.json", function (error, cro) {
             .ticks(10)
     }
         
-    var lg_margin = {top: 40, right: 30, bottom: 30, left: 30},
+    var lg_margin = {top: 40, right: 30, bottom: 50, left: 50},
     lg_width = 500 - lg_margin.left - lg_margin.right,
     lg_height = 400 - lg_margin.top - lg_margin.bottom;
    
@@ -269,17 +261,24 @@ d3.json("cro_regv3.json", function (error, cro) {
         .selectAll("text")
         .style("text-anchor", "middle");
    
+        
+    lch.append("text")
+        .attr("x", (lg_width / 2))
+        .attr("y", (lg_height + (lg_margin.bottom / 2)))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Godina");
+
+        
+        
     lch.append("g")
        .attr("class", "y axis")
-       .call(yAxis);
-        /* .call("y axis")
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .attr("transform", "translate(0," + lg_height + ")")
-        .style("text-anchor", "end")
-        .text("Vrijednost u postotcima");*/
+       .call(yAxis)
+       .append("text")
+       .attr("dy", "-2.5em")
+       .attr("dx", "-17em")
+       .attr("transform", "rotate(-90)")
+       .text("Vrijednost u postotcima [%]");
    
         
     lch.append("g")         
@@ -359,3 +358,21 @@ var slider = d3.slider()
  
 // Render the slider in the div
 d3.select('#slider').call(slider);
+
+var w = 140, h = 400;
+
+			var key = d3.select("body").append("svg").attr("width", w).attr("height", h);
+
+			var legend = key.append("defs").append("svg:linearGradient").attr("id", "gradient").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
+
+			legend.append("stop").attr("offset", "0%").attr("stop-color", "#000033").attr("stop-opacity", 1);
+
+			legend.append("stop").attr("offset", "100%").attr("stop-color", "#aaeeff").attr("stop-opacity", 1);
+
+			key.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(0,10)");
+
+			var y = d3.scale.linear().range([300, 0]).domain([0, 40]);
+
+			var yAxis = d3.svg.axis().scale(y).orient("right");
+
+			key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("dy", ".71em").style("text-anchor", "end").text("[%]");
