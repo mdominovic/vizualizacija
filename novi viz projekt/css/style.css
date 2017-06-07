@@ -1,5 +1,5 @@
-#chart { border: 1px solid green;}
-svg { background: #AABBFF; border: 2px solid #8899EE; display: inline-block;}
+#chart { border: 1px solid black;}
+svg { background: white; border: 1px solid black; display: inline-block; position: absolute;}
 
 
 
@@ -14,8 +14,8 @@ svg { background: #AABBFF; border: 2px solid #8899EE; display: inline-block;}
 			font-weight: normal; 	
 			border: 3px;		
 			border-radius: 20px;
-            border-color: #f00;
-            background: gray;
+            border-color: black;
+            background: cyan;
             pointer-events: none;
 		}
 
@@ -24,7 +24,9 @@ svg { background: #AABBFF; border: 2px solid #8899EE; display: inline-block;}
 }
 
 #line_chart{
-    display: inline;
+    display: inline-block;
+    position: absolute;
+    left: 60%;
     float:left;
 }
 
@@ -36,4 +38,18 @@ svg { background: #AABBFF; border: 2px solid #8899EE; display: inline-block;}
 .axis text {
     font-family: sans-serif;
     font-size: 13px;
+}
+
+.axis path,
+  .axis line{
+    fill: none;
+    stroke: black;
+  }
+
+.grid .tick {
+    stroke: lightgray;
+    opacity: 0.7;
+}
+.grid path {
+      stroke-width: 0;
 }

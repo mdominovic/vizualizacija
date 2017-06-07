@@ -210,7 +210,22 @@ d3.json("cro_regv3.json", function (error, cro) {
    
    
     function drawChart(naslov){
-    var lg_margin = {top: 20, right: 30, bottom: 20, left: 30},
+        
+    function make_x_axis() {        
+        return d3.svg.axis()
+            .scale(xScale)
+             .orient("bottom")
+             .ticks(10)
+    }
+
+    function make_y_axis() {        
+        return d3.svg.axis()
+            .scale(yScale)
+            .orient("left")
+            .ticks(10)
+    }
+        
+    var lg_margin = {top: 40, right: 30, bottom: 30, left: 30},
     lg_width = 500 - lg_margin.left - lg_margin.right,
     lg_height = 400 - lg_margin.top - lg_margin.bottom;
    
@@ -221,7 +236,7 @@ d3.json("cro_regv3.json", function (error, cro) {
     var yScale = d3.scale.linear()
         .domain([0, 50])
         .range([lg_height, 0]);
- 
+    
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
@@ -237,7 +252,10 @@ d3.json("cro_regv3.json", function (error, cro) {
         //.outerTickSize(0)
         //.tickPadding(10)
         .ticks(10);
- 
+    
+        
+    
+        
     var lch = d3.select("#line_chart").append("svg")
         .attr("width", lg_width + lg_margin.left + lg_margin.right)
         .attr("height", lg_height + lg_margin.top + lg_margin.bottom)
@@ -263,6 +281,22 @@ d3.json("cro_regv3.json", function (error, cro) {
         .style("text-anchor", "end")
         .text("Vrijednost u postotcima");*/
    
+        
+    lch.append("g")         
+        .attr("class", "grid")
+        .attr("transform", "translate(0," + lg_height + ")")
+        .call(make_x_axis()
+            .tickSize(-lg_height, 0, 0)
+            .tickFormat("")
+        )
+
+    lch.append("g")         
+        .attr("class", "grid")
+        .call(make_y_axis()
+            .tickSize(-lg_width, 0, 0)
+            .tickFormat("")
+        )
+ 
  
     /*svg.append("path")
        .data(line_data)
@@ -273,15 +307,17 @@ d3.json("cro_regv3.json", function (error, cro) {
         .attr("x", (lg_width / 2))            
         .attr("y", 0 - (lg_margin.top / 2))
         .attr("text-anchor", "middle")  
-        .attr("dy", "0.8em")
+        .attr("dy", "0.2em")
         .style("font-size", "23px")
-        .style("font-weight", "bold")  
+        .style("font-weight", "bold")
         .text(naslov);
    
     var valueline = d3.svg.line()
                         .x(function(d) { return xScale(d.year); })
                         .y(function(d) { return yScale(d.line_data); })
                         .interpolate("basis");
+        
+    
  
    
     var linechart = lch.append("path")
@@ -289,12 +325,12 @@ d3.json("cro_regv3.json", function (error, cro) {
                         .attr("class", "line")
                         .attr('stroke-width', 2)
                         .style("stroke", "blue")
-                        .attr('fill', 'none');;
- 
+                        .attr('fill', 'none');
+        
+    
+    
                
 }
-   
-   
    
    
    
