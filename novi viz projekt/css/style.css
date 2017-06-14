@@ -61,8 +61,25 @@ svg { background: white; border: 1px solid black; display: inline-block; positio
     background: pink;
 }
 
-#slider{
-    float: right;
+#lgnd .axis text {
+				font: 10px sans-serif;
+			}
+
+#lgnd .axis line, 
+#lgnd .axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+#lgnd {
+    padding: 5px;
+    padding-top: 250px;
+}
+
+#lgnd svg{ 
+    padding-left: 30px;
+    border: none;
     
 }
 

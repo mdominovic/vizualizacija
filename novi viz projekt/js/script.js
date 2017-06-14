@@ -33,7 +33,10 @@ d3.select("body").append("div").attr("id", "ispis_zupanije");
 d3.select("body").append("div")
 .attr("id", "line_chart");
 
- 
+
+d3.select("body").append("div")
+.attr("id", "lgnd");
+
 d3.select("#chart").append("div").attr("id", "zupanija");
  
  
@@ -361,18 +364,18 @@ d3.select('#slider').call(slider);
 
 var w = 140, h = 400;
 
-			var key = d3.select("body").append("svg").attr("width", w).attr("height", h);
+var key = d3.select("#lgnd").append("svg").attr("width", w).attr("height", h);
 
-			var legend = key.append("defs").append("svg:linearGradient").attr("id", "gradient").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
+var legend = key.append("defs").append("svg:linearGradient").attr("id", "gradient").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
 
-			legend.append("stop").attr("offset", "0%").attr("stop-color", "#000033").attr("stop-opacity", 1);
+legend.append("stop").attr("offset", "0%").attr("stop-color", "#000033").attr("stop-opacity", 1);
 
-			legend.append("stop").attr("offset", "100%").attr("stop-color", "#aaeeff").attr("stop-opacity", 1);
+legend.append("stop").attr("offset", "100%").attr("stop-color", "#aaeeff").attr("stop-opacity", 1);
 
-			key.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(0,10)");
+key.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(0,10)");
 
-			var y = d3.scale.linear().range([300, 0]).domain([0, 40]);
+var y = d3.scale.linear().range([300, 0]).domain([0, 40]);
 
-			var yAxis = d3.svg.axis().scale(y).orient("right");
+var yAxis = d3.svg.axis().scale(y).orient("right");
 
-			key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("dy", ".71em").style("text-anchor", "end").text("[%]");
+key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("dy", ".71em").style("text-anchor", "end").text("[%]");
