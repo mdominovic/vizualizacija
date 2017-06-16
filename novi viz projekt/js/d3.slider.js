@@ -3,9 +3,9 @@ d3.slider = function module() {
 
   var div, min = 0, max = 100, svg, svgGroup, value, classPrefix, axis, 
   height=40, rect,
-  rectHeight = 12,
+  rectHeight = 10,
   tickSize = 6,
-  margin = {top: 25, right: 25, bottom: 15, left: 25}, 
+  margin = {top: 35, right: 25, bottom: 15, left: 25}, 
   ticks = 0, tickValues, scale, tickFormat, dragger, width, 
   range = false,
   callbackFn, stepValues, focus;
@@ -84,7 +84,7 @@ d3.slider = function module() {
       if (tickFormat) { 
         displayValue = tickFormat(value);
       } else {
-        displayValue = d3.format(",.0f")(value);
+        displayValue = d3.format("")(value);
       }
       
       dragger.append("text")
@@ -103,7 +103,7 @@ d3.slider = function module() {
       
       dragger.append("circle")
       .attr("class", "dragger-inner")
-      .attr("r", 4)
+      .attr("r", -1)
       .attr("transform", function(d) {
         return "translate(0,6)";
       });
@@ -175,7 +175,7 @@ d3.slider = function module() {
     if (tickFormat) { 
       displayValue = tickFormat(value);
     } else {
-      displayValue = d3.format(",.0f")(value);
+      displayValue = d3.format("")(value);
     }
     svg.selectAll(".dragger").select("text")
     .text(displayValue);

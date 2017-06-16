@@ -1,7 +1,9 @@
 #chart { border: 1px solid black;}
 svg { background: white; border: 1px solid black; display: inline-block; position: absolute;}
 
-
+body{
+    padding: 1%;
+}
 
 #ispis_zupanije{
 			display: none;
