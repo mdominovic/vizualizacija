@@ -24,7 +24,7 @@ function setup(width, height) {
  
  
 var color = d3.scale.linear()
-            .domain([6, 40])
+            .domain([3000, 7000])
             .clamp(true)
             .range(['#aaeeff', '#000033']);
  
@@ -45,7 +45,7 @@ function drawMap(year) {
 d3.json("cro_regv3.json", function (error, cro) {
     var data = topojson.feature (cro, cro.objects.layer1);
     var data1;
-    var godine = ["2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016"];
+    var godine = ["2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015"];
     d3.select("#map svg").remove();
     setup(width, height);
     var states = svg.selectAll("path.county")
@@ -58,27 +58,25 @@ d3.json("cro_regv3.json", function (error, cro) {
                     .style("fill", function(d) {
                         switch(year) {
                             case 2007:
-                                console.log(d.properties.nezap_p_2007);
-                                return color(d.properties.nezap_p_2007);
+                                return color(d.properties.neto_2007);
                             case 2008:
-                                console.log(d.properties.nezap_p_2008);
-                                return color(d.properties.nezap_p_2008);
+                                return color(d.properties.neto_2008);
                             case 2009:
-                                return color(d.properties.nezap_p_2009);
+                                return color(d.properties.neto_2009);
                             case 2010:
-                                return color(d.properties.nezap_p_2010);
+                                return color(d.properties.neto_2010);
                             case 2011:
-                                return color(d.properties.nezap_p_2011);
+                                return color(d.properties.neto_2011);
                             case 2012:
-                                return color(d.properties.nezap_p_2012);
+                                return color(d.properties.neto_2012);
                             case 2013:
-                                return color(d.properties.nezap_p_2013);
+                                return color(d.properties.neto_2013);
                             case 2014:
-                                return color(d.properties.nezap_p_2014);
+                                return color(d.properties.neto_2014);
                             case 2015:
-                                return color(d.properties.nezap_p_2015);
+                                return color(d.properties.neto_2015);
                             case 2016:
-                                return color(d.properties.nezap_p_2016);
+                                return color(d.properties.neto_2016);
  
                         }
                     })
@@ -96,27 +94,23 @@ d3.json("cro_regv3.json", function (error, cro) {
                         .html(function(data) {
                         switch(year){
                             case 2007:
-                                //console.log(d.properties.nezap_p_2007);
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2007;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2007;
                             case 2008:
-                                console.log(d.properties.nezap_p_2008);
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2008;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2008;
                             case 2009:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2009;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2009;
                             case 2010:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2010;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2010;
                             case 2011:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2011;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2011;
                             case 2012:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2012;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2012;
                             case 2013:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2013;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2013;
                             case 2014:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2014;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2014;
                             case 2015:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2015;
-                            case 2016:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2016;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2015;
  
                         }
        
@@ -128,27 +122,23 @@ d3.json("cro_regv3.json", function (error, cro) {
                         states.style("fill", function(d) {
                             switch(year){
                             case 2007:
-                               
-                                return color(d.properties.nezap_p_2007);
+                                return color(d.properties.neto_2007);
                             case 2008:
-                                //console.log(d.properties.nezap_p_2008);
-                                return color(d.properties.nezap_p_2008);
+                                return color(d.properties.neto_2008);
                             case 2009:
-                                return color(d.properties.nezap_p_2009);
+                                return color(d.properties.neto_2009);
                             case 2010:
-                                return color(d.properties.nezap_p_2010);
+                                return color(d.properties.neto_2010);
                             case 2011:
-                                return color(d.properties.nezap_p_2011);
+                                return color(d.properties.neto_2011);
                             case 2012:
-                                return color(d.properties.nezap_p_2012);
+                                return color(d.properties.neto_2012);
                             case 2013:
-                                return color(d.properties.nezap_p_2013);
+                                return color(d.properties.neto_2013);
                             case 2014:
-                                return color(d.properties.nezap_p_2014);
+                                return color(d.properties.neto_2014);
                             case 2015:
-                                return color(d.properties.nezap_p_2015);
-                            case 2016:
-                                return color(d.properties.nezap_p_2016);
+                                return color(d.properties.neto_2015);
  
                             }
                         })
@@ -159,35 +149,32 @@ d3.json("cro_regv3.json", function (error, cro) {
                         var naslov_zupanije = d.properties.name;
                         
                         data1 = [{
-                            "line_data": d.properties.nezap_p_2007,
+                            "line_data": d.properties.neto_2007,
                             "year": "2007"
                         }, {
-                            "line_data": d.properties.nezap_p_2008,
+                            "line_data": d.properties.neto_2008,
                             "year": "2008"
                         }, {
-                            "line_data": d.properties.nezap_p_2009,
+                            "line_data": d.properties.neto_2009,
                             "year": "2009"
                         }, {
-                            "line_data": d.properties.nezap_p_2010,
+                            "line_data": d.properties.neto_2010,
                             "year": "2010"
                         }, {
-                            "line_data": d.properties.nezap_p_2011,
+                            "line_data": d.properties.neto_2011,
                             "year": "2011"
                         }, {
-                            "line_data": d.properties.nezap_p_2012,
+                            "line_data": d.properties.neto_2012,
                             "year": "2012"
                          }, {
-                            "line_data": d.properties.nezap_p_2013,
+                            "line_data": d.properties.neto_2013,
                             "year": "2013"
                          }, {
-                            "line_data": d.properties.nezap_p_2014,
+                            "line_data": d.properties.neto_2014,
                             "year": "2014"
                          }, {
-                            "line_data": d.properties.nezap_p_2015,
+                            "line_data": d.properties.neto_2015,
                             "year": "2015"
-                         }, {
-                            "line_data": d.properties.nezap_p_2016,
-                            "year": "2016"
                         }];
  
                         
@@ -217,11 +204,11 @@ function drawChart(naslov){
     lg_height = 400 - lg_margin.top - lg_margin.bottom;
    
     var xScale = d3.scale.linear()
-    .domain([2007, 2016])
+    .domain([2007, 2015])
     .range([0, lg_width]);
  
     var yScale = d3.scale.linear()
-        .domain([0, 50])
+        .domain([0, 7000])
         .range([lg_height, 0]);
     
     var xAxis = d3.svg.axis()
@@ -309,9 +296,9 @@ drawMap(2007);
  
 var slider = d3.slider()
     .min(2007)
-    .max(2016)
+    .max(2015)
     .ticks(10)
-    .stepValues([2007,2008,2009,2010,2011,2012,2013,2014,2015,2016])
+    .stepValues([2007,2008,2009,2010,2011,2012,2013,2014,2015])
     .showRange(true)
     .value(2007)
     .callback(function() {
