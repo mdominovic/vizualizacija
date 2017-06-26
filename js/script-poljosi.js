@@ -24,7 +24,7 @@ function setup(width, height) {
  
  
 var color = d3.scale.linear()
-            .domain([6, 40])
+            .domain([0, 6000])
             .clamp(true)
             .range(['#aaeeff', '#000033']);
  
@@ -58,27 +58,25 @@ d3.json("cro_regv3.json", function (error, cro) {
                     .style("fill", function(d) {
                         switch(year) {
                             case 2007:
-                                console.log(d.properties.nezap_p_2007);
-                                return color(d.properties.nezap_p_2007);
+                                return color(d.properties.poljo_2007);
                             case 2008:
-                                console.log(d.properties.nezap_p_2008);
-                                return color(d.properties.nezap_p_2008);
+                                return color(d.properties.poljo_2008);
                             case 2009:
-                                return color(d.properties.nezap_p_2009);
+                                return color(d.properties.poljo_2009);
                             case 2010:
-                                return color(d.properties.nezap_p_2010);
+                                return color(d.properties.poljo_2010);
                             case 2011:
-                                return color(d.properties.nezap_p_2011);
+                                return color(d.properties.poljo_2011);
                             case 2012:
-                                return color(d.properties.nezap_p_2012);
+                                return color(d.properties.poljo_2012);
                             case 2013:
-                                return color(d.properties.nezap_p_2013);
+                                return color(d.properties.poljo_2013);
                             case 2014:
-                                return color(d.properties.nezap_p_2014);
+                                return color(d.properties.poljo_2014);
                             case 2015:
-                                return color(d.properties.nezap_p_2015);
+                                return color(d.properties.poljo_2015);
                             case 2016:
-                                return color(d.properties.nezap_p_2016);
+                                return color(d.properties.poljo_2016);
  
                         }
                     })
@@ -96,27 +94,25 @@ d3.json("cro_regv3.json", function (error, cro) {
                         .html(function(data) {
                         switch(year){
                             case 2007:
-                                //console.log(d.properties.nezap_p_2007);
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2007;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2007;
                             case 2008:
-                                console.log(d.properties.nezap_p_2008);
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2008;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2008;
                             case 2009:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2009;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2009;
                             case 2010:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2010;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2010;
                             case 2011:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2011;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2011;
                             case 2012:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2012;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2012;
                             case 2013:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2013;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2013;
                             case 2014:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2014;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2014;
                             case 2015:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2015;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2015;
                             case 2016:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2016;
+                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2016;
  
                         }
        
@@ -128,27 +124,25 @@ d3.json("cro_regv3.json", function (error, cro) {
                         states.style("fill", function(d) {
                             switch(year){
                             case 2007:
-                               
-                                return color(d.properties.nezap_p_2007);
+                                return color(d.properties.poljo_2007);
                             case 2008:
-                                //console.log(d.properties.nezap_p_2008);
-                                return color(d.properties.nezap_p_2008);
+                                return color(d.properties.poljo_2008);
                             case 2009:
-                                return color(d.properties.nezap_p_2009);
+                                return color(d.properties.poljo_2009);
                             case 2010:
-                                return color(d.properties.nezap_p_2010);
+                                return color(d.properties.poljo_2010);
                             case 2011:
-                                return color(d.properties.nezap_p_2011);
+                                return color(d.properties.poljo_2011);
                             case 2012:
-                                return color(d.properties.nezap_p_2012);
+                                return color(d.properties.poljo_2012);
                             case 2013:
-                                return color(d.properties.nezap_p_2013);
+                                return color(d.properties.poljo_2013);
                             case 2014:
-                                return color(d.properties.nezap_p_2014);
+                                return color(d.properties.poljo_2014);
                             case 2015:
-                                return color(d.properties.nezap_p_2015);
+                                return color(d.properties.poljo_2015);
                             case 2016:
-                                return color(d.properties.nezap_p_2016);
+                                return color(d.properties.poljo_2015);
  
                             }
                         })
@@ -159,34 +153,34 @@ d3.json("cro_regv3.json", function (error, cro) {
                         var naslov_zupanije = d.properties.name;
                         
                         data1 = [{
-                            "line_data": d.properties.nezap_p_2007,
+                            "line_data": d.properties.poljo_2007,
                             "year": "2007"
                         }, {
-                            "line_data": d.properties.nezap_p_2008,
+                            "line_data": d.properties.poljo_2008,
                             "year": "2008"
                         }, {
-                            "line_data": d.properties.nezap_p_2009,
+                            "line_data": d.properties.poljo_2009,
                             "year": "2009"
                         }, {
-                            "line_data": d.properties.nezap_p_2010,
+                            "line_data": d.properties.poljo_2010,
                             "year": "2010"
                         }, {
-                            "line_data": d.properties.nezap_p_2011,
+                            "line_data": d.properties.poljo_2011,
                             "year": "2011"
                         }, {
-                            "line_data": d.properties.nezap_p_2012,
+                            "line_data": d.properties.poljo_2012,
                             "year": "2012"
                          }, {
-                            "line_data": d.properties.nezap_p_2013,
+                            "line_data": d.properties.poljo_2013,
                             "year": "2013"
                          }, {
-                            "line_data": d.properties.nezap_p_2014,
+                            "line_data": d.properties.poljo_2014,
                             "year": "2014"
                          }, {
-                            "line_data": d.properties.nezap_p_2015,
+                            "line_data": d.properties.poljo_2015,
                             "year": "2015"
                          }, {
-                            "line_data": d.properties.nezap_p_2016,
+                            "line_data": d.properties.poljo_2016,
                             "year": "2016"
                         }];
  
@@ -202,14 +196,14 @@ function drawChart(naslov){
         return d3.svg.axis()
             .scale(xScale)
              .orient("bottom")
-             .ticks(10)
+             .ticks(10);
     }
 
     function make_y_axis() {        
         return d3.svg.axis()
             .scale(yScale)
             .orient("left")
-            .ticks(10)
+            .ticks(10);
     }
         
     var lg_margin = {top: 40, right: 30, bottom: 50, left: 50},
@@ -221,7 +215,7 @@ function drawChart(naslov){
     .range([0, lg_width]);
  
     var yScale = d3.scale.linear()
-        .domain([0, 50])
+        .domain([0, 6000])
         .range([lg_height, 0]);
     
     var xAxis = d3.svg.axis()
@@ -261,7 +255,7 @@ function drawChart(naslov){
        .attr("dy", "-2.5em")
        .attr("dx", "-17em")
        .attr("transform", "rotate(-90)")
-       .text("Vrijednost u postotcima [%]");
+       .text("Broj registriranih aktivnih osiguranika");
    
         
     lch.append("g")         
@@ -298,9 +292,8 @@ function drawChart(naslov){
                         .attr("class", "line")
                         .attr('stroke-width', 2)
                         .style("stroke", "blue")
-                        .attr('fill', 'none');               
-}
-    
+                        .attr('fill', 'none');
+}    
 }
 );
 }
@@ -335,8 +328,8 @@ legend.append("stop").attr("offset", "100%").attr("stop-color", "#aaeeff").attr(
 
 key.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(0,10)");
 
-var y = d3.scale.linear().range([300, 0]).domain([0, 40]);
+var y = d3.scale.linear().range([300, 0]).domain([0, 7000]);
 
 var yAxis = d3.svg.axis().scale(y).orient("right");
 
-key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("dy", ".71em").style("text-anchor", "end").text("[%]");
+key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("dy", ".71em").style("text-anchor", "end").text("[n]");

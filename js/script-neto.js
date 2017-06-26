@@ -24,7 +24,7 @@ function setup(width, height) {
  
  
 var color = d3.scale.linear()
-            .domain([3000, 7000])
+            .domain([0, 7000])
             .clamp(true)
             .range(['#aaeeff', '#000033']);
  
@@ -94,23 +94,23 @@ d3.json("cro_regv3.json", function (error, cro) {
                         .html(function(data) {
                         switch(year){
                             case 2007:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2007;
+                                return d.properties.name + "<br> Prosječna mjesečna neto plaća: "+d.properties.neto_2007+" kn";
                             case 2008:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2008;
+                                return d.properties.name + "<br> Prosječna mjesečna neto plaća: "+d.properties.neto_2008+" kn";
                             case 2009:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2009;
+                                return d.properties.name + "<br> Prosječna mjesečna neto plaća: "+d.properties.neto_2009+" kn";
                             case 2010:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2010;
+                                return d.properties.name + "<br> Prosječna mjesečna neto plaća: "+d.properties.neto_2010+" kn";
                             case 2011:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2011;
+                                return d.properties.name + "<br> Prosječna mjesečna neto plaća: "+d.properties.neto_2011+" kn";
                             case 2012:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2012;
+                                return d.properties.name + "<br> Prosječna mjesečna neto plaća: "+d.properties.neto_2012+" kn";
                             case 2013:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2013;
+                                return d.properties.name + "<br> Prosječna mjesečna neto plaća: "+d.properties.neto_2013+" kn";
                             case 2014:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2014;
+                                return d.properties.name + "<br> Prosječna mjesečna neto plaća: "+d.properties.neto_2014+" kn";
                             case 2015:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.neto_2015;
+                                return d.properties.name + "<br> Prosječna mjesečna neto plaća: "+d.properties.neto_2015+" kn";
  
                         }
        
@@ -248,7 +248,7 @@ function drawChart(naslov){
        .attr("dy", "-2.5em")
        .attr("dx", "-17em")
        .attr("transform", "rotate(-90)")
-       .text("Vrijednost u postotcima [%]");
+       .text("Vrijednost u kunama [kn]");
    
         
     lch.append("g")         
@@ -322,8 +322,8 @@ legend.append("stop").attr("offset", "100%").attr("stop-color", "#aaeeff").attr(
 
 key.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(0,10)");
 
-var y = d3.scale.linear().range([300, 0]).domain([0, 40]);
+var y = d3.scale.linear().range([300, 0]).domain([0, 7000]);
 
 var yAxis = d3.svg.axis().scale(y).orient("right");
 
-key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("dy", ".71em").style("text-anchor", "end").text("[%]");
+key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("dy", ".71em").style("text-anchor", "end").text("[kn]");

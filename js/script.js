@@ -59,10 +59,8 @@ d3.json("cro_regv3.json", function (error, cro) {
                         switch(year) {
                             case 2007:
                                 console.log(d.properties.nezap_p_2007);
-                                return color(d.properties.nezap_p_2007);
                             case 2008:
                                 console.log(d.properties.nezap_p_2008);
-                                return color(d.properties.nezap_p_2008);
                             case 2009:
                                 return color(d.properties.nezap_p_2009);
                             case 2010:
@@ -96,10 +94,8 @@ d3.json("cro_regv3.json", function (error, cro) {
                         .html(function(data) {
                         switch(year){
                             case 2007:
-                                //console.log(d.properties.nezap_p_2007);
                                 return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2007;
                             case 2008:
-                                console.log(d.properties.nezap_p_2008);
                                 return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2008;
                             case 2009:
                                 return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2009;
@@ -127,11 +123,9 @@ d3.json("cro_regv3.json", function (error, cro) {
                           .style("display", "none");  
                         states.style("fill", function(d) {
                             switch(year){
-                            case 2007:
-                               
+                            case 2007: 
                                 return color(d.properties.nezap_p_2007);
                             case 2008:
-                                //console.log(d.properties.nezap_p_2008);
                                 return color(d.properties.nezap_p_2008);
                             case 2009:
                                 return color(d.properties.nezap_p_2009);
@@ -202,14 +196,14 @@ function drawChart(naslov){
         return d3.svg.axis()
             .scale(xScale)
              .orient("bottom")
-             .ticks(10)
+             .ticks(10);
     }
 
     function make_y_axis() {        
         return d3.svg.axis()
             .scale(yScale)
             .orient("left")
-            .ticks(10)
+            .ticks(10);
     }
         
     var lg_margin = {top: 40, right: 30, bottom: 50, left: 50},
@@ -298,9 +292,8 @@ function drawChart(naslov){
                         .attr("class", "line")
                         .attr('stroke-width', 2)
                         .style("stroke", "blue")
-                        .attr('fill', 'none');               
-}
-    
+                        .attr('fill', 'none');
+}    
 }
 );
 }
