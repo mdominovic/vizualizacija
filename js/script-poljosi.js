@@ -28,7 +28,7 @@ var color = d3.scale.linear()
             .clamp(true)
             .range(['#aaeeff', '#000033']);
  
-d3.select("body").append("div").attr("id", "ispis_zupanije");
+d3.select("body").append("div").attr("id", "hover_zup_p");
  
 d3.select("body").append("div")
 .attr("id", "line_chart");
@@ -86,40 +86,40 @@ d3.json("cro_regv3.json", function (error, cro) {
                     .on("mouseover", function(d,i){
                         states.style("cursor", "pointer");
                         var currentState = this;
-                        d3.select(this).style('fill', '#ff0000');
-                        d3.select("#ispis_zupanije")    
+                        d3.select(this).style('fill', '#ea3b3b');
+                        d3.select("#hover_zup_p")    
                         .style("left", (d3.event.pageX) + "px")    
                         .style("top", (d3.event.pageY ) + "px")
                         .style("display", "block")        
                         .html(function(data) {
                         switch(year){
                             case 2007:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2007;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2007;
                             case 2008:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2008;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2008;
                             case 2009:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2009;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2009;
                             case 2010:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2010;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2010;
                             case 2011:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2011;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2011;
                             case 2012:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2012;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2012;
                             case 2013:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2013;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2013;
                             case 2014:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2014;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2014;
                             case 2015:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2015;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2015;
                             case 2016:
-                                return d.properties.name + "<br> Aktivnih osiguranika: "+d.properties.poljo_2016;
+                                return d.properties.name + "<br> Broj aktivnih osiguranika: "+d.properties.poljo_2016;
  
                         }
        
                     })
                     })
                     .on('mouseout', function(d) {
-                        d3.select("#ispis_zupanije")
+                        d3.select("#hover_zup_p")
                           .style("display", "none");  
                         states.style("fill", function(d) {
                             switch(year){
@@ -206,7 +206,7 @@ function drawChart(naslov){
             .ticks(10);
     }
         
-    var lg_margin = {top: 40, right: 30, bottom: 50, left: 50},
+    var lg_margin = {top: 40, right: 30, bottom: 50, left: 70},
     lg_width = 500 - lg_margin.left - lg_margin.right,
     lg_height = 400 - lg_margin.top - lg_margin.bottom;
    
@@ -252,8 +252,8 @@ function drawChart(naslov){
        .attr("class", "y axis")
        .call(yAxis)
        .append("text")
-       .attr("dy", "-2.5em")
-       .attr("dx", "-17em")
+       .attr("dy", "-4em")
+       .attr("dx", "-20em")
        .attr("transform", "rotate(-90)")
        .text("Broj registriranih aktivnih osiguranika");
    

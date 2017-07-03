@@ -5,24 +5,58 @@ body{
     padding: 1%;
 }
 
-#ispis_zupanije{
-			display: none;
-			position: absolute;			
-			text-align: center;			
-			width: 200px;					
-			height: 40px;					
-			padding: 2px;				
-			font: 15px sans-serif;	
-			font-weight: normal; 	
-			border: 3px;		
-			border-radius: 20px;
-            border-color: black;
-            background: cyan;
-            pointer-events: none;
-		}
+#hover_zup{
+    display: none;
+    position: absolute;			
+    text-align: center;			
+    width: 220px;					
+    height: 40px;					
+    padding: 2px;				
+    font: 15px sans-serif;	
+    font-weight: normal; 	
+    border: 3px;		
+    border-radius: 20px;
+    border-color: black;
+    background: #faa4a4;
+    pointer-events: none;
+}
+
+#hover_zup_n {
+    display: none;
+    position: absolute;			
+    text-align: center;			
+    width: 200px;					
+    height: 60px;					
+    padding: 2px;				
+    font: 15px sans-serif;	
+    font-weight: normal; 	
+    border: 3px;		
+    border-radius: 20px;
+    border-color: black;
+    background: #faa4a4;
+    pointer-events: none;
+}
+
+#hover_zup_p {
+    display: none;
+    position: absolute;			
+    text-align: center;			
+    width: 230px;					
+    height: 40px;					
+    padding: 2px;				
+    font: 15px sans-serif;	
+    font-weight: normal; 	
+    border: 3px;		
+    border-radius: 20px;
+    border-color: black;
+    background: #faa4a4;
+    pointer-events: none;
+}
 
 #slider{
     width: 500px;
+    border-style: none;
+    
 }
 
 #line_chart{

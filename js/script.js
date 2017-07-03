@@ -28,7 +28,7 @@ var color = d3.scale.linear()
             .clamp(true)
             .range(['#aaeeff', '#000033']);
  
-d3.select("body").append("div").attr("id", "ispis_zupanije");
+d3.select("body").append("div").attr("id", "hover_zup");
  
 d3.select("body").append("div")
 .attr("id", "line_chart");
@@ -86,8 +86,8 @@ d3.json("cro_regv3.json", function (error, cro) {
                     .on("mouseover", function(d,i){
                         states.style("cursor", "pointer");
                         var currentState = this;
-                        d3.select(this).style('fill', '#ff0000');
-                        d3.select("#ispis_zupanije")    
+                        d3.select(this).style('fill', '#ea3b3b');
+                        d3.select("#hover_zup")    
                         .style("left", (d3.event.pageX) + "px")    
                         .style("top", (d3.event.pageY ) + "px")
                         .style("display", "block")        
@@ -119,7 +119,7 @@ d3.json("cro_regv3.json", function (error, cro) {
                     })
                     })
                     .on('mouseout', function(d) {
-                        d3.select("#ispis_zupanije")
+                        d3.select("#hover_zup")
                           .style("display", "none");  
                         states.style("fill", function(d) {
                             switch(year){
