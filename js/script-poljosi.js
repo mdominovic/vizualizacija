@@ -149,7 +149,6 @@ d3.json("cro_regv3.json", function (error, cro) {
                     })
                     .on('click', function(d){
                         d3.select("#line_chart svg").remove();
-                        console.log(d.properties.name);
                         var naslov_zupanije = d.properties.name;
                         
                         data1 = [{
@@ -304,11 +303,11 @@ var slider = d3.slider()
     .min(2007)
     .max(2016)
     .ticks(10)
+    .tickFormat(d3.format("godine"))
     .stepValues([2007,2008,2009,2010,2011,2012,2013,2014,2015,2016])
     .showRange(true)
     .value(2007)
     .callback(function() {
-        console.log(slider.value());
         drawMap(slider.value());  
    
     });
@@ -332,4 +331,4 @@ var y = d3.scale.linear().range([300, 0]).domain([0, 7000]);
 
 var yAxis = d3.svg.axis().scale(y).orient("right");
 
-key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("dy", ".71em").style("text-anchor", "end").text("[n]");
+key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("y", 30).attr("dy", "-2.5em").attr("dx", "5em").style("text-anchor", "end").text("[n]");
