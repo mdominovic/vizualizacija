@@ -24,7 +24,7 @@ function setup(width, height) {
  
  
 var color = d3.scale.linear()
-            .domain([6, 40])
+            .domain([0, 40])
             .clamp(true)
             .range(['#aaeeff', '#000033']);
  
@@ -188,7 +188,8 @@ d3.json("cro_regv3.json", function (error, cro) {
                         
                     });
    
-   
+// LINE CHART
+    
 function drawChart(naslov){
         
     function make_x_axis() {        
@@ -300,35 +301,66 @@ function drawChart(naslov){
 drawMap(2007);
  
 var slider = d3.slider()
-    .min(2007)
-    .max(2016)
-    .ticks(10)
-    .tickFormat(d3.format("godine"))
-    .stepValues([2007,2008,2009,2010,2011,2012,2013,2014,2015,2016])
-    .showRange(true)
-    .value(2007)
-    .callback(function() {
-        drawMap(slider.value());  
-   
-    });
+                .min(2007)
+                .max(2016)
+                .ticks(10)
+                .tickFormat(d3.format("godine"))
+                .stepValues([2007,2008,2009,2010,2011,2012,2013,2014,2015,2016])
+                .showRange(true)
+                .value(2007)
+                .callback(function() {
+                    drawMap(slider.value());  
+
+                });
  
 // Render the slider in the div
 d3.select('#slider').call(slider);
 
+
+// LEGEND
 var w = 140, h = 400;
 
-var key = d3.select("#lgnd").append("svg").attr("width", w).attr("height", h);
+var key = d3.select("#lgnd")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
 
-var legend = key.append("defs").append("svg:linearGradient").attr("id", "gradient").attr("x1", "100%").attr("y1", "0%").attr("x2", "100%").attr("y2", "100%").attr("spreadMethod", "pad");
+var legend = key.append("defs")
+                .append("svg:linearGradient")
+                .attr("id", "gradient")
+                .attr("x1", "100%")
+                .attr("y1", "0%")
+                .attr("x2", "100%")
+                .attr("y2", "100%")
+                .attr("spreadMethod", "pad");
 
-legend.append("stop").attr("offset", "0%").attr("stop-color", "#000033").attr("stop-opacity", 1);
+legend.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#000033")
+        .attr("stop-opacity", 1);
 
-legend.append("stop").attr("offset", "100%").attr("stop-color", "#aaeeff").attr("stop-opacity", 1);
+legend.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#aaeeff")
+        .attr("stop-opacity", 1);
 
-key.append("rect").attr("width", w - 100).attr("height", h - 100).style("fill", "url(#gradient)").attr("transform", "translate(0,10)");
+key.append("rect")
+    .attr("width", w - 100)
+    .attr("height", h - 100)
+    .style("fill", "url(#gradient)")
+    .attr("transform", "translate(0,10)");
 
 var y = d3.scale.linear().range([300, 0]).domain([0, 40]);
 
 var yAxis = d3.svg.axis().scale(y).orient("right");
 
-key.append("g").attr("class", "y axis").attr("transform", "translate(41,10)").call(yAxis).append("text").attr("y", 30).attr("dy", "-2.5em").attr("dx", "4em").style("text-anchor", "end").text("[%]");
+key.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(41,10)")
+    .call(yAxis)
+    .append("text")
+    .attr("y", 30)
+    .attr("dy", "-2.5em")
+    .attr("dx", "4em")
+    .style("text-anchor", "end")
+    .text("[%]");
