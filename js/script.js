@@ -94,25 +94,25 @@ d3.json("cro_regv3.json", function (error, cro) {
                         .html(function(data) {
                         switch(year){
                             case 2007:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2007;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2007+"%";
                             case 2008:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2008;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2008+"%";
                             case 2009:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2009;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2009+"%";
                             case 2010:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2010;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2010+"%";
                             case 2011:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2011;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2011+"%";
                             case 2012:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2012;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2012+"%";
                             case 2013:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2013;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2013+"%";
                             case 2014:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2014;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2014+"%";
                             case 2015:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2015;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2015+"%";
                             case 2016:
-                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2016;
+                                return d.properties.name + "<br> Postotak nezaposlenih: "+d.properties.nezap_p_2016+"%";
  
                         }
        
